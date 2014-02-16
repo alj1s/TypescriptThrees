@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d857cfad-f7ee-4392-9903-874ef451c659" name="Default" comment="added dark theme.&#10;coloured tiles for 1 and 2 tiles&#10;">
+    <list default="true" id="d857cfad-f7ee-4392-9903-874ef451c659" name="Default" comment="added new game functionality&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/demo.js.map" afterPath="$PROJECT_DIR$/scripts/demo.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/demo.js" afterPath="$PROJECT_DIR$/scripts/demo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/demo.ts" afterPath="$PROJECT_DIR$/scripts/demo.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="angularDemo.iws" />
@@ -118,8 +115,8 @@
         <option value="$PROJECT_DIR$/scripts/jquery.d.ts" />
         <option value="code.jquery.com/jquery.js" />
         <option value="$PROJECT_DIR$/css/site.css" />
-        <option value="$PROJECT_DIR$/scripts/demo.ts" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/scripts/demo.ts" />
       </list>
     </option>
   </component>
@@ -320,7 +317,11 @@
       <created>1392583306305</created>
       <updated>1392583306305</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added new game functionality&#10;">
+      <created>1392585222173</created>
+      <updated>1392585222173</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -360,7 +361,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="added dark theme.&#10;coloured tiles for 1 and 2 tiles&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="added dark theme.&#10;coloured tiles for 1 and 2 tiles&#10;" />
+    <MESSAGE value="added new game functionality&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="added new game functionality&#10;" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
