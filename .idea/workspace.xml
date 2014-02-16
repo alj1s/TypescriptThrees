@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d857cfad-f7ee-4392-9903-874ef451c659" name="Default" comment="added dark theme.&#10;coloured tiles for 1 and 2 tiles&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/css/bootstrap.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/demo.js.map" afterPath="$PROJECT_DIR$/scripts/demo.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/demo.js" afterPath="$PROJECT_DIR$/scripts/demo.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/demo.ts" afterPath="$PROJECT_DIR$/scripts/demo.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="angularDemo.iws" />
@@ -34,7 +32,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="13" selection-start="317" selection-end="317" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="330">
+            <state line="11" column="19" selection-start="229" selection-end="229" vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="330">
               <folding />
             </state>
           </provider>
@@ -64,7 +62,7 @@
       <file leaf-file-name="demo.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/demo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="299" column="0" selection-start="9405" selection-end="9405" vertical-scroll-proportion="0.0" vertical-offset="4485" max-vertical-offset="4575">
+            <state line="311" column="0" selection-start="9527" selection-end="9527" vertical-scroll-proportion="0.0" vertical-offset="4665" max-vertical-offset="4755">
               <folding />
             </state>
           </provider>
@@ -73,7 +71,7 @@
       <file leaf-file-name="demo.ts" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/demo.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="28" selection-start="367" selection-end="367" vertical-scroll-proportion="0.33333334" vertical-offset="135" max-vertical-offset="2790">
+            <state line="266" column="0" selection-start="7356" selection-end="7356" vertical-scroll-proportion="0.20833333" vertical-offset="1910" max-vertical-offset="2910">
               <folding>
                 <element signature="n#!!block;n#move#0;n#Board#0" expanded="false" />
                 <element signature="n#!!block;n#addRandomTile#0;n#Board#0" expanded="false" />
@@ -120,13 +118,13 @@
         <option value="$PROJECT_DIR$/scripts/jquery.d.ts" />
         <option value="code.jquery.com/jquery.js" />
         <option value="$PROJECT_DIR$/css/site.css" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/scripts/demo.ts" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="9" />
+    <option name="x" value="12" />
     <option name="y" value="22" />
     <option name="width" value="1260" />
     <option name="height" value="715" />
@@ -318,19 +316,24 @@
       <created>1389433547752</created>
       <updated>1389433547752</updated>
     </task>
+    <task id="LOCAL-00001" summary="added dark theme.&#10;coloured tiles for 1 and 2 tiles&#10;">
+      <created>1392583306305</created>
+      <updated>1392583306305</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="9" y="22" width="1260" height="715" extended-state="0" />
-    <editor active="false" />
+    <frame x="12" y="22" width="1260" height="715" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32972136" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972136" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21362229" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21362229" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972136" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -365,7 +368,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/scripts/demo.js</url>
-          <line>259</line>
+          <line>255</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
@@ -663,7 +666,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/demo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="299" column="0" selection-start="9405" selection-end="9405" vertical-scroll-proportion="0.0" vertical-offset="4485" max-vertical-offset="4575">
+        <state line="311" column="0" selection-start="9527" selection-end="9527" vertical-scroll-proportion="0.0" vertical-offset="4665" max-vertical-offset="4755">
           <folding />
         </state>
       </provider>
@@ -675,14 +678,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="13" selection-start="317" selection-end="317" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="330">
+        <state line="11" column="19" selection-start="229" selection-end="229" vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="330">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/demo.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="28" selection-start="367" selection-end="367" vertical-scroll-proportion="0.33333334" vertical-offset="135" max-vertical-offset="2790">
+        <state line="266" column="0" selection-start="7356" selection-end="7356" vertical-scroll-proportion="0.20833333" vertical-offset="1910" max-vertical-offset="2910">
           <folding>
             <element signature="n#!!block;n#move#0;n#Board#0" expanded="false" />
             <element signature="n#!!block;n#addRandomTile#0;n#Board#0" expanded="false" />

@@ -223,10 +223,6 @@ var BoardRenderer = (function () {
 
                     this.drawTileValue(context, tile, j, i);
                 }
-                //                else {
-                //                    context.fillStyle = "#FFFFFF";
-                //                    context.fillRect(j * 50, i * 50, 50, 50);
-                //                }
             }
         }
     };
@@ -265,12 +261,28 @@ var Direction;
     Direction[Direction["Right"] = 3] = "Right";
 })(Direction || (Direction = {}));
 
+function boardClear() {
+    var div = document.getElementById("myDiv");
+    var canvas = document.getElementById("board");
+    div.removeChild(canvas);
+    exec();
+}
+
 function exec() {
     var canvas = document.createElement("canvas");
     canvas.id = "board";
     canvas.width = 256;
     canvas.height = 256;
-    document.body.appendChild(canvas);
+
+    var div = document.getElementById("myDiv");
+    if (div == null) {
+        div = document.createElement("div");
+        div.id = "myDiv";
+        document.body.appendChild(div);
+    }
+
+    div.appendChild(canvas);
+
     var ctx = canvas.getContext("2d");
     var board = new Board();
     var boardRenderer = new BoardRenderer(board);
