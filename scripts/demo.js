@@ -13,10 +13,10 @@ var Board = (function () {
         this.setInitialState();
     }
     Board.prototype.initialise = function () {
-        this.state = new Array();
+        this.state = [];
 
         for (var c = 0; c < this.numberOfColumns; c++) {
-            this.state.push(new Array());
+            this.state.push([]);
         }
     };
 
@@ -212,28 +212,36 @@ var BoardRenderer = (function () {
         this.board = board;
     }
     BoardRenderer.prototype.render = function (context) {
+        this.drawBoard(context);
+
         for (var i = 0; i < this.board.numberOfRows; i++) {
             for (var j = 0; j < this.board.numberOfColumns; j++) {
                 var tile = this.board.getTile(j, i);
                 if (tile != null) {
-                    var text = tile.value.toString();
                     context.fillStyle = tile.color;
-                    context.fillRect(j * 50, i * 50, 50, 50);
+                    context.fillRect(j * 50 + 5, i * 50 + 5, 40, 40);
 
-                    context.font = "30px Arial";
-                    context.fillStyle = "#000000";
-                    context.fillText(text, j * 50 + 10, (i + 1) * 50 - 15);
-                } else {
-                    context.fillStyle = "#FFFFFF";
-                    context.fillRect(j * 50, i * 50, 50, 50);
+                    this.drawTileValue(context, tile, j, i);
                 }
+                //                else {
+                //                    context.fillStyle = "#FFFFFF";
+                //                    context.fillRect(j * 50, i * 50, 50, 50);
+                //                }
             }
         }
+    };
 
-        this.drawBoard(context);
+    BoardRenderer.prototype.drawTileValue = function (context, tile, column, row) {
+        var text = tile.value.toString();
+        context.font = "30px Arial";
+        context.fillStyle = "#000000";
+        context.fillText(text, column * 50 + 10, (row + 1) * 50 - 15);
     };
 
     BoardRenderer.prototype.drawBoard = function (context) {
+        context.fillStyle = "#FFFFFF";
+        context.fillRect(0, 0, 200, 200);
+
         var i;
         for (i = 0; i <= 200; i += 50) {
             context.moveTo(0, i);
@@ -259,6 +267,7 @@ var Direction;
 
 function exec() {
     var canvas = document.createElement("canvas");
+    canvas.id = "board";
     canvas.width = 256;
     canvas.height = 256;
     document.body.appendChild(canvas);
