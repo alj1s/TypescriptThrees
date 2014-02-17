@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d857cfad-f7ee-4392-9903-874ef451c659" name="Default" comment="added new game functionality&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/demo.js.map" afterPath="$PROJECT_DIR$/scripts/demo.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/demo.js" afterPath="$PROJECT_DIR$/scripts/demo.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/demo.ts" afterPath="$PROJECT_DIR$/scripts/demo.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="angularDemo.iws" />
@@ -29,16 +32,16 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="19" selection-start="229" selection-end="229" vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="330">
+            <state line="12" column="92" selection-start="345" selection-end="345" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="345">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="site.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="site.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/site.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="12" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="195">
+            <state line="6" column="12" selection-start="131" selection-end="131" vertical-scroll-proportion="0.1875" vertical-offset="0" max-vertical-offset="480">
               <folding />
             </state>
           </provider>
@@ -59,19 +62,18 @@
       <file leaf-file-name="demo.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/demo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="311" column="0" selection-start="9527" selection-end="9527" vertical-scroll-proportion="0.0" vertical-offset="4665" max-vertical-offset="4755">
+            <state line="281" column="47" selection-start="8896" selection-end="8896" vertical-scroll-proportion="0.0" vertical-offset="3990" max-vertical-offset="4740">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="demo.ts" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="demo.ts" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/demo.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="266" column="0" selection-start="7356" selection-end="7356" vertical-scroll-proportion="0.20833333" vertical-offset="1910" max-vertical-offset="2910">
+            <state line="257" column="33" selection-start="7295" selection-end="7295" vertical-scroll-proportion="0.0" vertical-offset="1895" max-vertical-offset="3315">
               <folding>
                 <element signature="n#!!block;n#move#0;n#Board#0" expanded="false" />
-                <element signature="n#!!block;n#addRandomTile#0;n#Board#0" expanded="false" />
                 <element signature="n#!!block;n#shiftLeft#0;n#Board#0" expanded="false" />
                 <element signature="n#!!block;n#shiftRight#0;n#Board#0" expanded="false" />
                 <element signature="n#!!block;n#shiftDown#0;n#Board#0" expanded="false" />
@@ -115,13 +117,14 @@
         <option value="$PROJECT_DIR$/scripts/jquery.d.ts" />
         <option value="code.jquery.com/jquery.js" />
         <option value="$PROJECT_DIR$/css/site.css" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/scripts/demo.ts" />
+        <option value="$PROJECT_DIR$/scripts/demo.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="12" />
+    <option name="x" value="2" />
     <option name="y" value="22" />
     <option name="width" value="1260" />
     <option name="height" value="715" />
@@ -321,11 +324,15 @@
       <created>1392585222173</created>
       <updated>1392585222173</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added new game functionality&#10;">
+      <created>1392585250351</created>
+      <updated>1392585250351</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="12" y="22" width="1260" height="715" extended-state="0" />
+    <frame x="2" y="22" width="1260" height="715" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972136" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -367,13 +374,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/scripts/demo.js</url>
-          <line>255</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="13" />
     </breakpoint-manager>
   </component>
@@ -414,7 +414,6 @@
         <state line="267" column="0" selection-start="7450" selection-end="7450" vertical-scroll-proportion="0.0" vertical-offset="2775" max-vertical-offset="2775">
           <folding>
             <element signature="n#!!block;n#move#0;n#Board#0" expanded="false" />
-            <element signature="n#!!block;n#addRandomTile#0;n#Board#0" expanded="false" />
             <element signature="n#!!block;n#shiftLeft#0;n#Board#0" expanded="false" />
             <element signature="n#!!block;n#shiftRight#0;n#Board#0" expanded="false" />
             <element signature="n#!!block;n#shiftDown#0;n#Board#0" expanded="false" />
@@ -473,7 +472,6 @@
         <state line="270" column="16" selection-start="7526" selection-end="7526" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2745">
           <folding>
             <element signature="n#!!block;n#move#0;n#Board#0" expanded="false" />
-            <element signature="n#!!block;n#addRandomTile#0;n#Board#0" expanded="false" />
             <element signature="n#!!block;n#shiftLeft#0;n#Board#0" expanded="false" />
             <element signature="n#!!block;n#shiftRight#0;n#Board#0" expanded="false" />
             <element signature="n#!!block;n#shiftDown#0;n#Board#0" expanded="false" />
@@ -532,7 +530,6 @@
         <state line="19" column="41" selection-start="389" selection-end="390" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="4665">
           <folding>
             <element signature="n#!!block;n#move#0;n#Board#0" expanded="false" />
-            <element signature="n#!!block;n#addRandomTile#0;n#Board#0" expanded="false" />
             <element signature="n#!!block;n#shiftLeft#0;n#Board#0" expanded="false" />
             <element signature="n#!!block;n#shiftRight#0;n#Board#0" expanded="false" />
             <element signature="n#!!block;n#shiftDown#0;n#Board#0" expanded="false" />
@@ -584,7 +581,6 @@
         <state line="63" column="74" selection-start="1601" selection-end="1601" vertical-scroll-proportion="0.0" vertical-offset="945" max-vertical-offset="4740">
           <folding>
             <element signature="n#!!block;n#move#0;n#Board#0" expanded="false" />
-            <element signature="n#!!block;n#addRandomTile#0;n#Board#0" expanded="false" />
             <element signature="n#!!block;n#shiftLeft#0;n#Board#0" expanded="false" />
             <element signature="n#!!block;n#shiftRight#0;n#Board#0" expanded="false" />
             <element signature="n#!!block;n#shiftDown#0;n#Board#0" expanded="false" />
@@ -652,23 +648,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/site.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="12" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/jquery.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2741" column="28" selection-start="125427" selection-end="125427" vertical-scroll-proportion="0.0" vertical-offset="40540" max-vertical-offset="41205">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/demo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="311" column="0" selection-start="9527" selection-end="9527" vertical-scroll-proportion="0.0" vertical-offset="4665" max-vertical-offset="4755">
           <folding />
         </state>
       </provider>
@@ -678,19 +660,11 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="19" selection-start="229" selection-end="229" vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="330">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/demo.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="266" column="0" selection-start="7356" selection-end="7356" vertical-scroll-proportion="0.20833333" vertical-offset="1910" max-vertical-offset="2910">
+        <state line="257" column="33" selection-start="7295" selection-end="7295" vertical-scroll-proportion="0.0" vertical-offset="1895" max-vertical-offset="3315">
           <folding>
             <element signature="n#!!block;n#move#0;n#Board#0" expanded="false" />
-            <element signature="n#!!block;n#addRandomTile#0;n#Board#0" expanded="false" />
             <element signature="n#!!block;n#shiftLeft#0;n#Board#0" expanded="false" />
             <element signature="n#!!block;n#shiftRight#0;n#Board#0" expanded="false" />
             <element signature="n#!!block;n#shiftDown#0;n#Board#0" expanded="false" />
@@ -698,6 +672,27 @@
             <element signature="n#!!block;n#getTile#0;n#Board#0" expanded="false" />
             <element signature="n#!!block;n#isOnBoard#0;n#Board#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/demo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="281" column="47" selection-start="8896" selection-end="8896" vertical-scroll-proportion="0.0" vertical-offset="3990" max-vertical-offset="4740">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="92" selection-start="345" selection-end="345" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="345">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/site.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="12" selection-start="131" selection-end="131" vertical-scroll-proportion="0.1875" vertical-offset="0" max-vertical-offset="480">
+          <folding />
         </state>
       </provider>
     </entry>

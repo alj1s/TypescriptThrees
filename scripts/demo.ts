@@ -21,9 +21,9 @@ class Board {
     }
 
     private setInitialState() {
-        this.state[0][0] = new Tile(3);
-        this.state[1][0] = new DyadTile();
-        this.state[3][0] = new UnitTile();
+        for (var i = 0; i < 9; i++) {
+            this.addRandomTile();
+        }
     }
 
     move(direction:Direction) {
@@ -53,7 +53,7 @@ class Board {
             var row = Math.floor(Math.random() * 4);
 
             if(this.state[column][row] == null){
-                var value = Math.floor(Math.random()*6 + 1);
+                var value = Math.floor(Math.random() * 3 + 1);
                 if(value == 1){
                     this.state[column][row] = new UnitTile();
                 }
@@ -61,7 +61,8 @@ class Board {
                     this.state[column][row] = new DyadTile();
                 }
                 else{
-                    var val = Math.pow(2,value -3)*3;
+                    var exponent = Math.floor(Math.random() * 3);
+                    var val = Math.pow(2, exponent) * 3;
                     this.state[column][row] = new Tile(val);
                 }
 
@@ -178,6 +179,7 @@ class Board {
 class Tile {
 
     color:string = "#FFFFFF";
+    textColor:string = "#000000";
 
     constructor(public value:number) {
     }
@@ -193,10 +195,10 @@ class Tile {
 
 class UnitTile extends Tile {
 
-    color:string = "#FF0000";
-
     constructor() {
         super(1);
+        this.color = "#FF0000";
+        this.textColor = "#FFFFFF";
     }
 
     canMergeWith(other:Tile) {
@@ -206,10 +208,10 @@ class UnitTile extends Tile {
 
 class DyadTile extends Tile {
 
-    color:string = "#0000FF";
-
     constructor() {
         super(2);
+        this.color = "#0000FF";
+        this.textColor = "#FFFFFF";
     }
 
     canMergeWith(other:Tile) {
@@ -242,6 +244,7 @@ class BoardRenderer {
         var text:string = tile.value.toString();
         context.font = "30px Arial";
         context.fillStyle = "#000000";
+        context.fillStyle = tile.textColor;
         context.fillText(text, column * 50 + 10, (row + 1) * 50 - 15);
     }
 

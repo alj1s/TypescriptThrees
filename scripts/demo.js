@@ -21,9 +21,9 @@ var Board = (function () {
     };
 
     Board.prototype.setInitialState = function () {
-        this.state[0][0] = new Tile(3);
-        this.state[1][0] = new DyadTile();
-        this.state[3][0] = new UnitTile();
+        for (var i = 0; i < 9; i++) {
+            this.addRandomTile();
+        }
     };
 
     Board.prototype.move = function (direction) {
@@ -51,13 +51,14 @@ var Board = (function () {
             var row = Math.floor(Math.random() * 4);
 
             if (this.state[column][row] == null) {
-                var value = Math.floor(Math.random() * 6 + 1);
+                var value = Math.floor(Math.random() * 3 + 1);
                 if (value == 1) {
                     this.state[column][row] = new UnitTile();
                 } else if (value == 2) {
                     this.state[column][row] = new DyadTile();
                 } else {
-                    var val = Math.pow(2, value - 3) * 3;
+                    var exponent = Math.floor(Math.random() * 3);
+                    var val = Math.pow(2, exponent) * 3;
                     this.state[column][row] = new Tile(val);
                 }
 
@@ -172,6 +173,7 @@ var Tile = (function () {
     function Tile(value) {
         this.value = value;
         this.color = "#FFFFFF";
+        this.textColor = "#000000";
     }
     Tile.prototype.canMergeWith = function (other) {
         return other.value == this.value;
@@ -188,6 +190,7 @@ var UnitTile = (function (_super) {
     function UnitTile() {
         _super.call(this, 1);
         this.color = "#FF0000";
+        this.textColor = "#FFFFFF";
     }
     UnitTile.prototype.canMergeWith = function (other) {
         return other.value + this.value == 3;
@@ -200,6 +203,7 @@ var DyadTile = (function (_super) {
     function DyadTile() {
         _super.call(this, 2);
         this.color = "#0000FF";
+        this.textColor = "#FFFFFF";
     }
     DyadTile.prototype.canMergeWith = function (other) {
         return other.value + this.value == 3;
@@ -231,6 +235,7 @@ var BoardRenderer = (function () {
         var text = tile.value.toString();
         context.font = "30px Arial";
         context.fillStyle = "#000000";
+        context.fillStyle = tile.textColor;
         context.fillText(text, column * 50 + 10, (row + 1) * 50 - 15);
     };
 
@@ -275,12 +280,6 @@ function exec() {
     canvas.height = 256;
 
     var div = document.getElementById("myDiv");
-    if (div == null) {
-        div = document.createElement("div");
-        div.id = "myDiv";
-        document.body.appendChild(div);
-    }
-
     div.appendChild(canvas);
 
     var ctx = canvas.getContext("2d");
