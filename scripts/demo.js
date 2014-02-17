@@ -11,6 +11,7 @@ var Board = (function () {
         this.numberOfColumns = 4;
         this.initialise();
         this.setInitialState();
+        this.computeScore();
     }
     Board.prototype.initialise = function () {
         this.state = [];
@@ -27,20 +28,39 @@ var Board = (function () {
     };
 
     Board.prototype.move = function (direction) {
+        var moved;
         if (direction == 0 /* Up */) {
-            this.shiftUp();
+            moved = this.shiftUp();
         }
         if (direction == 1 /* Down */) {
-            this.shiftDown();
+            moved = moved || this.shiftDown();
         }
         if (direction == 2 /* Left */) {
-            this.shiftLeft();
+            moved = moved || this.shiftLeft();
         }
         if (direction == 3 /* Right */) {
-            this.shiftRight();
+            moved = moved || this.shiftRight();
         }
 
-        this.addRandomTile();
+        if (moved) {
+            this.addRandomTile();
+        }
+
+        this.computeScore();
+    };
+
+    Board.prototype.computeScore = function () {
+        var total = 0;
+        for (var j = 0; j < this.numberOfColumns; j++) {
+            for (var i = 0; i < this.numberOfRows; i++) {
+                var tile = this.state[j][i];
+                if (tile != null && tile.value > 2) {
+                    total += Math.pow(3, (Math.log(tile.value / 3) / Math.log(2) + 1));
+                }
+            }
+        }
+
+        $("#score").text("Score " + total);
     };
 
     Board.prototype.addRandomTile = function () {
@@ -68,6 +88,7 @@ var Board = (function () {
     };
 
     Board.prototype.shiftLeft = function () {
+        var moved = false;
         for (var row = 0; row < this.numberOfRows; row++) {
             for (var col = 0; col < this.numberOfColumns; col++) {
                 var tile = this.state[col][row];
@@ -80,17 +101,22 @@ var Board = (function () {
                         if (tile.canMergeWith(other)) {
                             this.state[col - 1][row] = other.merge(tile);
                             this.state[col][row] = null;
+                            moved = true;
                         }
                     } else {
                         this.state[col - 1][row] = tile;
                         this.state[col][row] = null;
+                        moved = true;
                     }
                 }
             }
         }
+
+        return moved;
     };
 
     Board.prototype.shiftRight = function () {
+        var moved = false;
         for (var row = 0; row < this.numberOfRows; row++) {
             for (var col = this.numberOfColumns - 1; col > -1; col--) {
                 var tile = this.state[col][row];
@@ -103,17 +129,22 @@ var Board = (function () {
                         if (tile.canMergeWith(other)) {
                             this.state[col + 1][row] = other.merge(tile);
                             this.state[col][row] = null;
+                            moved = true;
                         }
                     } else {
                         this.state[col + 1][row] = tile;
                         this.state[col][row] = null;
+                        moved = true;
                     }
                 }
             }
         }
+
+        return moved;
     };
 
     Board.prototype.shiftDown = function () {
+        var moved = false;
         for (var col = 0; col < this.numberOfColumns; col++) {
             for (var row = this.numberOfRows - 1; row > -1; row--) {
                 var tile = this.state[col][row];
@@ -126,17 +157,22 @@ var Board = (function () {
                         if (tile.canMergeWith(other)) {
                             this.state[col][row + 1] = other.merge(tile);
                             this.state[col][row] = null;
+                            moved = true;
                         }
                     } else {
                         this.state[col][row + 1] = tile;
                         this.state[col][row] = null;
+                        moved = true;
                     }
                 }
             }
         }
+
+        return moved;
     };
 
     Board.prototype.shiftUp = function () {
+        var moved = false;
         for (var col = 0; col < this.numberOfColumns; col++) {
             for (var row = 0; row < this.numberOfRows; row++) {
                 var tile = this.state[col][row];
@@ -149,14 +185,18 @@ var Board = (function () {
                         if (tile.canMergeWith(other)) {
                             this.state[col][row - 1] = other.merge(tile);
                             this.state[col][row] = null;
+                            moved = true;
                         }
                     } else {
                         this.state[col][row - 1] = tile;
                         this.state[col][row] = null;
+                        moved = true;
                     }
                 }
             }
         }
+
+        return moved;
     };
 
     Board.prototype.getTile = function (column, row) {
@@ -214,8 +254,14 @@ var DyadTile = (function (_super) {
 var BoardRenderer = (function () {
     function BoardRenderer(board) {
         this.board = board;
+        this.cornerRadius = 20;
+        this.boardSize = 400;
+        this.cellSize = 100;
+        this.tileSize = 80;
     }
     BoardRenderer.prototype.render = function (context) {
+        var tileMargin = 10;
+
         this.drawBoard(context);
 
         for (var i = 0; i < this.board.numberOfRows; i++) {
@@ -223,7 +269,11 @@ var BoardRenderer = (function () {
                 var tile = this.board.getTile(j, i);
                 if (tile != null) {
                     context.fillStyle = tile.color;
-                    context.fillRect(j * 50 + 5, i * 50 + 5, 40, 40);
+                    context.lineJoin = "round";
+                    context.lineWidth = this.cornerRadius;
+                    context.strokeStyle = tile.color;
+                    context.strokeRect(j * this.cellSize + tileMargin + (this.cornerRadius / 2), i * this.cellSize + tileMargin + (this.cornerRadius / 2), this.tileSize - this.cornerRadius, this.tileSize - this.cornerRadius);
+                    context.fillRect(j * this.cellSize + tileMargin + (this.cornerRadius / 2), i * this.cellSize + tileMargin + (this.cornerRadius / 2), this.tileSize - this.cornerRadius, this.tileSize - this.cornerRadius);
 
                     this.drawTileValue(context, tile, j, i);
                 }
@@ -233,25 +283,36 @@ var BoardRenderer = (function () {
 
     BoardRenderer.prototype.drawTileValue = function (context, tile, column, row) {
         var text = tile.value.toString();
-        context.font = "30px Arial";
+        var fontSize = 30;
+
+        context.font = fontSize + "px Arial";
         context.fillStyle = "#000000";
         context.fillStyle = tile.textColor;
-        context.fillText(text, column * 50 + 10, (row + 1) * 50 - 15);
+        var textSize = context.measureText(tile.value.toString());
+
+        context.fillText(text, column * this.cellSize + (this.cellSize - textSize.width) / 2, (row + 1) * this.cellSize - (this.cellSize - fontSize) / 2);
     };
 
     BoardRenderer.prototype.drawBoard = function (context) {
-        context.fillStyle = "#FFFFFF";
-        context.fillRect(0, 0, 200, 200);
+        context.fillStyle = "#C5F6FF";
+        context.lineJoin = "round";
+        context.lineWidth = this.cornerRadius;
+        context.strokeStyle = "#C5F6FF";
+        context.strokeRect(this.cornerRadius / 2, this.cornerRadius / 2, this.boardSize - this.cornerRadius, this.boardSize - this.cornerRadius);
+        context.fillRect(this.cornerRadius / 2, this.cornerRadius / 2, this.boardSize - this.cornerRadius, this.boardSize - this.cornerRadius);
+
+        context.strokeStyle = "black";
+        context.lineWidth = 1;
 
         var i;
-        for (i = 0; i <= 200; i += 50) {
+        for (i = 0; i <= this.boardSize; i += this.cellSize) {
             context.moveTo(0, i);
-            context.lineTo(200, i);
+            context.lineTo(this.boardSize, i);
             context.stroke();
         }
-        for (i = 0; i <= 200; i += 50) {
+        for (i = this.cellSize; i <= this.boardSize - this.cellSize; i += this.cellSize) {
             context.moveTo(i, 0);
-            context.lineTo(i, 200);
+            context.lineTo(i, this.boardSize);
             context.stroke();
         }
     };
@@ -276,10 +337,16 @@ function boardClear() {
 function exec() {
     var canvas = document.createElement("canvas");
     canvas.id = "board";
-    canvas.width = 256;
-    canvas.height = 256;
+    canvas.width = 400;
+    canvas.height = 400;
 
     var div = document.getElementById("myDiv");
+    if (div == null) {
+        div = document.createElement("div");
+        div.id = "myDiv";
+        document.body.appendChild(div);
+    }
+
     div.appendChild(canvas);
 
     var ctx = canvas.getContext("2d");
