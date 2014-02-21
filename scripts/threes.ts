@@ -163,10 +163,10 @@ class Board {
                 this.addRandomTileToRow(0, value);
                 break;
             case Direction.Left :
-                this.addRandomTileToColumn(0, value);
+                this.addRandomTileToColumn(this.numberOfColumns - 1, value);
                 break;
             case Direction.Right:
-                this.addRandomTileToColumn(this.numberOfColumns - 1, value);
+                this.addRandomTileToColumn(0, value);
         }
     }
 
