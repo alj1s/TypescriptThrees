@@ -450,16 +450,16 @@ function exec() {
     $(window).bind('keydown', function (e) {
 
         var code = (e.keyCode ? e.keyCode : e.which);
-        if (code === 37) { // left
+        if (code == 37) { // left
             board.move(Direction.Left);
         }
-        if (code === 38) { // up
+        if (code == 38) { // up
             board.move(Direction.Up);
         }
-        if (code === 39) { // right
+        if (code == 39) { // right
             board.move(Direction.Right);
         }
-        if (code === 40) { // down
+        if (code == 40) { // down
             board.move(Direction.Down);
         }
 
