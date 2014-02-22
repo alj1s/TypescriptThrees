@@ -330,7 +330,6 @@ var BoardRenderer = (function () {
         this.cellSize = 100;
         this.tileSize = 80;
     }
-
     BoardRenderer.prototype.renderBoard = function (context) {
         var tileMargin = 10;
 
@@ -455,6 +454,7 @@ function exec() {
         }
 
         boardRenderer.renderBoard(ctx);
+        boardRenderer.renderNextTile(context, board.nextTile);
     });
 }
 

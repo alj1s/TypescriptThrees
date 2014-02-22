@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d857cfad-f7ee-4392-9903-874ef451c659" name="Default" comment="fix move logic&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+    <list default="true" id="d857cfad-f7ee-4392-9903-874ef451c659" name="Default" comment="added next tile&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/threes.js" afterPath="$PROJECT_DIR$/scripts/threes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/threes.ts" afterPath="$PROJECT_DIR$/scripts/threes.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -31,7 +30,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
               <folding />
             </state>
           </provider>
@@ -40,11 +39,11 @@
       <file leaf-file-name="threes.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/threes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6885">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6900">
               <folding>
-                <marker date="1393074615000" expanded="true" signature="10633:11600" placeholder="{...}" />
-                <marker date="1393074615000" expanded="true" signature="11152:11597" placeholder="{...}" />
-                <marker date="1393074615000" expanded="true" signature="10609:11154" placeholder="{...}" />
+                <marker date="1393074740000" expanded="true" signature="10204:11217" placeholder="{...}" />
+                <marker date="1393074740000" expanded="true" signature="10816:11214" placeholder="{...}" />
+                <marker date="1393074740000" expanded="true" signature="10180:10818" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -62,7 +61,7 @@
       <file leaf-file-name="threes.ts" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/threes.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="35" selection-start="1305" selection-end="1305" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="7485">
+            <state line="53" column="35" selection-start="1191" selection-end="1191" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="7410">
               <folding />
             </state>
           </provider>
@@ -110,8 +109,8 @@
         <option value="$PROJECT_DIR$/scripts/demo.js" />
         <option value="$PROJECT_DIR$/scripts/threes.js" />
         <option value="$PROJECT_DIR$/css/site.css" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/scripts/threes.ts" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -335,7 +334,11 @@
       <created>1393071058830</created>
       <updated>1393071058830</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added next tile&#10;">
+      <created>1393074654845</created>
+      <updated>1393074654845</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -377,7 +380,8 @@
     <MESSAGE value="added dark theme.&#10;coloured tiles for 1 and 2 tiles&#10;" />
     <MESSAGE value="added new game functionality&#10;" />
     <MESSAGE value="fix move logic&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix move logic&#10;" />
+    <MESSAGE value="added next tile&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="added next tile&#10;" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -385,12 +389,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/scripts/threes.ts</url>
-          <line>52</line>
+          <line>49</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/scripts/threes.ts</url>
-          <line>160</line>
+          <line>154</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
@@ -687,9 +691,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6750">
           <folding>
-            <marker date="1393074615000" expanded="true" signature="10633:11600" placeholder="{...}" />
-            <marker date="1393074615000" expanded="true" signature="11152:11597" placeholder="{...}" />
-            <marker date="1393074615000" expanded="true" signature="10609:11154" placeholder="{...}" />
+            <marker date="1393074740000" expanded="true" signature="10204:11217" placeholder="{...}" />
+            <marker date="1393074740000" expanded="true" signature="10816:11214" placeholder="{...}" />
+            <marker date="1393074740000" expanded="true" signature="10180:10818" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -703,7 +707,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/threes.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="35" selection-start="1305" selection-end="1305" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="7485">
+        <state line="53" column="35" selection-start="1191" selection-end="1191" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="7410">
           <folding />
         </state>
       </provider>

@@ -478,6 +478,7 @@ function exec() {
         }
 
         boardRenderer.renderBoard(ctx);
+        boardRenderer.renderNextTile(context, board.nextTile);
     });
 }
 
