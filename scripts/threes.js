@@ -1,7 +1,10 @@
 /// <reference path="jquery.d.ts"/>
 var __extends = this.__extends || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
+    function __() {
+        this.constructor = d;
+    }
+
     __.prototype = b.prototype;
     d.prototype = new __();
 };
@@ -13,6 +16,7 @@ var Board = (function () {
         this.setInitialState();
         this.computeScore();
     }
+
     Board.prototype.initialise = function () {
         this.state = [];
 
@@ -139,17 +143,21 @@ var Board = (function () {
         var value = this.getRandomValue();
 
         switch (direction) {
-            case 0 /* Up */:
+            case 0 /* Up */
+            :
                 this.addRandomTileToRow(this.numberOfRows - 1, value);
                 break;
-            case 1 /* Down */:
+            case 1 /* Down */
+            :
                 this.addRandomTileToRow(0, value);
                 break;
-            case 2 /* Left */:
-                this.addRandomTileToColumn(0, value);
-                break;
-            case 3 /* Right */:
+            case 2 /* Left */
+            :
                 this.addRandomTileToColumn(this.numberOfColumns - 1, value);
+                break;
+            case 3 /* Right */
+            :
+                this.addRandomTileToColumn(0, value);
         }
     };
 
@@ -281,6 +289,7 @@ var Tile = (function () {
         this.color = "#FFFFFF";
         this.textColor = "#000000";
     }
+
     Tile.prototype.canMergeWith = function (other) {
         return other.value == this.value;
     };
@@ -298,6 +307,7 @@ var UnitTile = (function (_super) {
         this.color = "#FF0000";
         this.textColor = "#FFFFFF";
     }
+
     UnitTile.prototype.canMergeWith = function (other) {
         return (other.value + this.value == 3);
     };
@@ -311,6 +321,7 @@ var DyadTile = (function (_super) {
         this.color = "#0000FF";
         this.textColor = "#FFFFFF";
     }
+
     DyadTile.prototype.canMergeWith = function (other) {
         return other.value + this.value == 3;
     };
@@ -325,6 +336,7 @@ var BoardRenderer = (function () {
         this.cellSize = 100;
         this.tileSize = 80;
     }
+
     BoardRenderer.prototype.render = function (context) {
         var tileMargin = 10;
 
@@ -422,16 +434,16 @@ function exec() {
 
     $(window).bind('keydown', function (e) {
         var code = (e.keyCode ? e.keyCode : e.which);
-        if (code === 37) {
+        if (code == 37) {
             board.move(2 /* Left */);
         }
-        if (code === 38) {
+        if (code == 38) {
             board.move(0 /* Up */);
         }
-        if (code === 39) {
+        if (code == 39) {
             board.move(3 /* Right */);
         }
-        if (code === 40) {
+        if (code == 40) {
             board.move(1 /* Down */);
         }
 
