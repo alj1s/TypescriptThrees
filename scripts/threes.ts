@@ -73,10 +73,10 @@ class Board {
     private addRandomTileToRow(row : number, value : number)
     {
         var addedTile : boolean = false;
-        
+        var column = 0;
+
         while (!addedTile) {
-            var column = 0;
-        
+
             if (this.state[column][row] == null) {
                 if (value == 1) 
                 {                    
@@ -103,9 +103,9 @@ class Board {
     private addRandomTileToColumn(column : number, value : number)
     {
         var addedTile : boolean = false;
-        
+        var row = 0;
+
         while (!addedTile) {
-            var row = 0;
 
             if (this.state[column][row] == null) {
                 if (value == 1) {
