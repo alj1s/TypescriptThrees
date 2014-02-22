@@ -3,6 +3,7 @@
 class Board {
     numberOfRows = 4;
     numberOfColumns = 4;
+    nextTile:Tile;
 
     private state:Tile[][];
 
@@ -11,6 +12,7 @@ class Board {
         this.initialise();
         this.setInitialState();
         this.computeScore();
+        this.createNextTile();
     }
 
     private initialise() {
@@ -18,6 +20,23 @@ class Board {
 
         for (var c = 0; c < this.numberOfColumns; c++) {
             this.state.push([]);
+        }
+    }
+
+    private createNextTile() {
+
+        var tileValue = this.getRandomValue();
+
+        if (tileValue == 1) {
+            this.nextTile = new UnitTile();
+        }
+        else if (tileValue == 2) {
+            this.nextTile = new DyadTile();
+        }
+        else {
+            var exponent = Math.floor(Math.random() * 3);
+            var val = Math.pow(2, exponent) * 3;
+            this.nextTile = new Tile(val);
         }
     }
 
@@ -44,6 +63,7 @@ class Board {
 
         if (moved) {
             this.addTile(direction);
+            this.createNextTile();
         }
 
         this.computeScore();
@@ -70,8 +90,7 @@ class Board {
         return Math.floor(Math.random() * 3 + 1);
     }
 
-    private addRandomTileToRow(row : number, value : number)
-    {
+    private addRandomTileToRow(row:number) {
         var addedTile : boolean = false;
 
 
@@ -80,20 +99,7 @@ class Board {
             var column = Math.floor(Math.random() * 4);
 
             if (this.state[column][row] == null) {
-                if (value == 1) 
-                {                    
-                    this.state[column][row] = new UnitTile();
-                }
-                else if (value == 2) 
-                {
-                    this.state[column][row] = new DyadTile();
-                }
-                else 
-                {
-                    var exponent = Math.floor(Math.random() * 3);
-                    var val = Math.pow(2, exponent) * 3;
-                    this.state[column][row] = new Tile(val);
-                }
+                this.state[column][row] = this.nextTile;
 
                 addedTile = true;
             }
@@ -102,8 +108,7 @@ class Board {
         }
     }
 
-    private addRandomTileToColumn(column : number, value : number)
-    {
+    private addRandomTileToColumn(column:number) {
         var addedTile : boolean = false;
 
         while (!addedTile) {
@@ -111,24 +116,15 @@ class Board {
             var row = Math.floor(Math.random() * 4);
 
             if (this.state[column][row] == null) {
-                if (value == 1) {
-                    this.state[column][row] = new UnitTile();
-                }
-                else if (value == 2) {
-                    this.state[column][row] = new DyadTile();
-                }
-                else {
-                    var exponent = Math.floor(Math.random() * 3);
-                    var val = Math.pow(2, exponent) * 3;
-                    this.state[column][row] = new Tile(val);
-                }
+                this.state[column][row] = this.nextTile;
 
                 addedTile = true;
             }
             
         }
     }
-    
+
+
     private addRandomTile()
     {
         var addedTile : boolean = false;
@@ -158,21 +154,19 @@ class Board {
 
     private addTile(direction : Direction) {
 
-        var value : number = this.getRandomValue();
-
         switch(direction)
         {
             case Direction.Up :
-                this.addRandomTileToRow(this.numberOfRows - 1, value);
+                this.addRandomTileToRow(this.numberOfRows - 1);
                 break;
             case Direction.Down :
-                this.addRandomTileToRow(0, value);
+                this.addRandomTileToRow(0);
                 break;
             case Direction.Left :
-                this.addRandomTileToColumn(this.numberOfColumns - 1, value);
+                this.addRandomTileToColumn(this.numberOfColumns - 1);
                 break;
             case Direction.Right:
-                this.addRandomTileToColumn(0, value);
+                this.addRandomTileToColumn(0);
         }
     }
 
@@ -362,7 +356,7 @@ class BoardRenderer {
     constructor(public board:Board) {
     }
 
-    render(context:CanvasRenderingContext2D) {
+    renderBoard(context:CanvasRenderingContext2D) {
 
         var tileMargin:number = 10;
 
@@ -383,6 +377,16 @@ class BoardRenderer {
                 }
             }
         }
+    }
+
+    renderNextTile(context:CanvasRenderingContext2D, tile:Tile) {
+        context.fillStyle = tile.color;
+        context.lineJoin = "round";
+        context.lineWidth = this.cornerRadius;
+        context.strokeStyle = tile.color;
+        context.strokeRect(20, 20, this.tileSize - this.cornerRadius, this.tileSize - this.cornerRadius);
+        context.fillRect(20, 20, this.tileSize - this.cornerRadius, this.tileSize - this.cornerRadius);
+
     }
 
     private drawTileValue(context:CanvasRenderingContext2D, tile:Tile, column:number, row:number) {
@@ -451,7 +455,11 @@ function exec() {
     var ctx = canvas.getContext("2d");
     var board = new Board();
     var boardRenderer = new BoardRenderer(board);
-    boardRenderer.render(ctx);
+    boardRenderer.renderBoard(ctx);
+
+    var tileCanvas = <HTMLCanvasElement>document.getElementById("nextTile");
+    var context = tileCanvas.getContext("2d");
+    boardRenderer.renderNextTile(context, board.nextTile);
 
     $(window).bind('keydown', function (e) {
 
@@ -469,7 +477,7 @@ function exec() {
             board.move(Direction.Down);
         }
 
-        boardRenderer.render(ctx);
+        boardRenderer.renderBoard(ctx);
     });
 }
 

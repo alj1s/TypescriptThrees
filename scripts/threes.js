@@ -15,13 +15,27 @@ var Board = (function () {
         this.initialise();
         this.setInitialState();
         this.computeScore();
+        this.createNextTile();
     }
-
     Board.prototype.initialise = function () {
         this.state = [];
 
         for (var c = 0; c < this.numberOfColumns; c++) {
             this.state.push([]);
+        }
+    };
+
+    Board.prototype.createNextTile = function () {
+        var tileValue = this.getRandomValue();
+
+        if (tileValue == 1) {
+            this.nextTile = new UnitTile();
+        } else if (tileValue == 2) {
+            this.nextTile = new DyadTile();
+        } else {
+            var exponent = Math.floor(Math.random() * 3);
+            var val = Math.pow(2, exponent) * 3;
+            this.nextTile = new Tile(val);
         }
     };
 
@@ -48,6 +62,7 @@ var Board = (function () {
 
         if (moved) {
             this.addTile(direction);
+            this.createNextTile();
         }
 
         this.computeScore();
@@ -71,44 +86,28 @@ var Board = (function () {
         return Math.floor(Math.random() * 3 + 1);
     };
 
-    Board.prototype.addRandomTileToRow = function (row, value) {
+    Board.prototype.addRandomTileToRow = function (row) {
         var addedTile = false;
 
         while (!addedTile) {
             var column = Math.floor(Math.random() * 4);
 
             if (this.state[column][row] == null) {
-                if (value == 1) {
-                    this.state[column][row] = new UnitTile();
-                } else if (value == 2) {
-                    this.state[column][row] = new DyadTile();
-                } else {
-                    var exponent = Math.floor(Math.random() * 3);
-                    var val = Math.pow(2, exponent) * 3;
-                    this.state[column][row] = new Tile(val);
-                }
+                this.state[column][row] = this.nextTile;
 
                 addedTile = true;
             }
         }
     };
 
-    Board.prototype.addRandomTileToColumn = function (column, value) {
+    Board.prototype.addRandomTileToColumn = function (column) {
         var addedTile = false;
 
         while (!addedTile) {
             var row = Math.floor(Math.random() * 4);
 
             if (this.state[column][row] == null) {
-                if (value == 1) {
-                    this.state[column][row] = new UnitTile();
-                } else if (value == 2) {
-                    this.state[column][row] = new DyadTile();
-                } else {
-                    var exponent = Math.floor(Math.random() * 3);
-                    var val = Math.pow(2, exponent) * 3;
-                    this.state[column][row] = new Tile(val);
-                }
+                this.state[column][row] = this.nextTile;
 
                 addedTile = true;
             }
@@ -140,24 +139,22 @@ var Board = (function () {
     };
 
     Board.prototype.addTile = function (direction) {
-        var value = this.getRandomValue();
-
         switch (direction) {
             case 0 /* Up */
             :
-                this.addRandomTileToRow(this.numberOfRows - 1, value);
+                this.addRandomTileToRow(this.numberOfRows - 1);
                 break;
             case 1 /* Down */
             :
-                this.addRandomTileToRow(0, value);
+                this.addRandomTileToRow(0);
                 break;
             case 2 /* Left */
             :
-                this.addRandomTileToColumn(this.numberOfColumns - 1, value);
+                this.addRandomTileToColumn(this.numberOfColumns - 1);
                 break;
             case 3 /* Right */
             :
-                this.addRandomTileToColumn(0, value);
+                this.addRandomTileToColumn(0);
         }
     };
 
@@ -289,7 +286,6 @@ var Tile = (function () {
         this.color = "#FFFFFF";
         this.textColor = "#000000";
     }
-
     Tile.prototype.canMergeWith = function (other) {
         return other.value == this.value;
     };
@@ -307,7 +303,6 @@ var UnitTile = (function (_super) {
         this.color = "#FF0000";
         this.textColor = "#FFFFFF";
     }
-
     UnitTile.prototype.canMergeWith = function (other) {
         return (other.value + this.value == 3);
     };
@@ -321,7 +316,6 @@ var DyadTile = (function (_super) {
         this.color = "#0000FF";
         this.textColor = "#FFFFFF";
     }
-
     DyadTile.prototype.canMergeWith = function (other) {
         return other.value + this.value == 3;
     };
@@ -337,7 +331,7 @@ var BoardRenderer = (function () {
         this.tileSize = 80;
     }
 
-    BoardRenderer.prototype.render = function (context) {
+    BoardRenderer.prototype.renderBoard = function (context) {
         var tileMargin = 10;
 
         this.drawBoard(context);
@@ -357,6 +351,15 @@ var BoardRenderer = (function () {
                 }
             }
         }
+    };
+
+    BoardRenderer.prototype.renderNextTile = function (context, tile) {
+        context.fillStyle = tile.color;
+        context.lineJoin = "round";
+        context.lineWidth = this.cornerRadius;
+        context.strokeStyle = tile.color;
+        context.strokeRect(20, 20, this.tileSize - this.cornerRadius, this.tileSize - this.cornerRadius);
+        context.fillRect(20, 20, this.tileSize - this.cornerRadius, this.tileSize - this.cornerRadius);
     };
 
     BoardRenderer.prototype.drawTileValue = function (context, tile, column, row) {
@@ -430,7 +433,11 @@ function exec() {
     var ctx = canvas.getContext("2d");
     var board = new Board();
     var boardRenderer = new BoardRenderer(board);
-    boardRenderer.render(ctx);
+    boardRenderer.renderBoard(ctx);
+
+    var tileCanvas = document.getElementById("nextTile");
+    var context = tileCanvas.getContext("2d");
+    boardRenderer.renderNextTile(context, board.nextTile);
 
     $(window).bind('keydown', function (e) {
         var code = (e.keyCode ? e.keyCode : e.which);
@@ -447,7 +454,7 @@ function exec() {
             board.move(1 /* Down */);
         }
 
-        boardRenderer.render(ctx);
+        boardRenderer.renderBoard(ctx);
     });
 }
 
